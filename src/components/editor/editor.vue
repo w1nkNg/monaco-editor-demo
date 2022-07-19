@@ -48,7 +48,22 @@ onMounted(() => {
 
 onUnmounted(() => {
   console.log("editor onUnmounted.");
-  instance.dispose();
+  let modifiedVal = instance.getValue();
+  console.log("modified data is ... ", modifiedVal);
+  //post the modified data to target file
+  axios
+    .post("/src/test/test.js", { data: modifiedVal })
+    .then((res: any) => {
+      console.log(res);
+      console.log("prepare to dispose - 1");
+      instance.dispose();
+    })
+    .catch((err: any) => {
+      console.log(err);
+      console.log("prepare to dispose - 2");
+
+      instance.dispose();
+    });
 });
 
 axios
