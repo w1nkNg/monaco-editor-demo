@@ -7,5 +7,6 @@ marp: true
 
 --- 
 - runs entirely in your browser
-- navigate files and source code repositories from GitHub & make and commit code change
+- navigate files and source code repositories from GitHub 
+- create PR, commit & push
 
